@@ -18,17 +18,18 @@ def run_game():
     # 开始游戏主循环
     while True:
         # 监视键盘和鼠标事件
-        gf.check_events()
+        gf.check_events(ship)
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
         # for event in pygame.event.get():
         #     if event.type == pygame.QUIT:
         #         sys.exit()
         # 每次循环都重绘屏幕
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
+        # screen.fill(ai_settings.bg_color)
+        # ship.blitme()
         # screen.fill(bg_color)
         # 让最近绘制的屏幕可见
-        pygame.display.flip()
+        # pygame.display.flip()
 
 
 if __name__ == '__main__':
