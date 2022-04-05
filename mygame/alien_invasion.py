@@ -4,6 +4,7 @@ from settings import Settings
 from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
+from alien import Alien
 
 
 def run_game():
@@ -16,6 +17,8 @@ def run_game():
     ship = Ship(ai_settings, screen)
     # 创建一个用于存储子弹的编组
     bullets = Group()
+    # 创建一个外星人
+    alien = Alien(ai_settings, screen)
     # 设置背景色
     bg_color = (230, 230, 230)
     # 开始游戏主循环
@@ -31,15 +34,16 @@ def run_game():
         #     if bullet.rect.bottom <= 0:
         #         bullets.remove(bullet)
         # print(len(bullets))
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, bullets, alien)
         # for event in pygame.event.get():
         #     if event.type == pygame.QUIT:
         #         sys.exit()
-        # 每次循环都重绘屏幕
+        # # 每次循环都重绘屏幕
         # screen.fill(ai_settings.bg_color)
         # ship.blitme()
-        # screen.fill(bg_color)
-        # 让最近绘制的屏幕可见
+        # alien.blitme()
+        ## screen.fill(bg_color)
+        # # 让最近绘制的屏幕可见
         # pygame.display.flip()
 
 
