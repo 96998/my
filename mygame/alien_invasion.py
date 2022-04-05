@@ -17,6 +17,10 @@ def run_game():
     ship = Ship(ai_settings, screen)
     # 创建一个用于存储子弹的编组
     bullets = Group()
+    # 创建一个用于存储外星飞船的编组
+    aliens = Group()
+    # 创建外星人群
+    gf.create_fleet(ai_settings, screen, aliens)
     # 创建一个外星人
     alien = Alien(ai_settings, screen)
     # 设置背景色
@@ -34,7 +38,7 @@ def run_game():
         #     if bullet.rect.bottom <= 0:
         #         bullets.remove(bullet)
         # print(len(bullets))
-        gf.update_screen(ai_settings, screen, ship, bullets, alien)
+        gf.update_screen(ai_settings, screen, ship, bullets, aliens)
         # for event in pygame.event.get():
         #     if event.type == pygame.QUIT:
         #         sys.exit()
